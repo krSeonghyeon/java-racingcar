@@ -12,8 +12,12 @@ public class Car {
     }
 
     public void move() {
-        if (Randoms.pickNumberInRange(0, 9) < 4)    return;
+        if (checkNotMove())    return;
         position++;
+    }
+
+    private boolean checkNotMove() {
+        return Randoms.pickNumberInRange(0, 9) < 4;
     }
 
     public String getName() {
