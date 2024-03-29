@@ -44,4 +44,12 @@ public class Race {
         System.out.print("최종 우승자 : ");
         System.out.print(String.join(", ", winners));
     }
+
+    public void startRace() {
+        for (int i = 0; i < tryCount; ++i) {
+            moveAllCars();
+            printResult();
+        }
+        printWinners();
+    }
 }

@@ -22,6 +22,7 @@ public class Application {
         int tryCount = Integer.parseInt(Console.readLine());
 
         System.out.println("실행결과");
-        // 게임 진행 및 결과 출력
+        Race race = new Race(cars, tryCount);
+        race.startRace();
     }
 }
