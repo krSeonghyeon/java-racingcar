@@ -17,4 +17,10 @@ public class Race {
         }
         System.out.println();
     }
+
+    public void moveAllCars() {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
 }
