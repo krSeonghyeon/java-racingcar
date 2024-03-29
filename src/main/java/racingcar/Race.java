@@ -12,20 +12,20 @@ public class Race {
         this.tryCount = tryCount;
     }
 
-    public void moveAllCars() {
+    private void moveAllCars() {
         for (Car car : cars) {
             car.move();
         }
     }
 
-    public void printResult() {
+    private void printResult() {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
         System.out.println();
     }
 
-    public void printWinners() {
+    private void printWinners() {
         List<String> winners = new ArrayList<>();
 
         findWinners(winners);
@@ -34,7 +34,7 @@ public class Race {
         System.out.print(String.join(", ", winners));
     }
 
-    public void findWinners(List<String> winners) {
+    private void findWinners(List<String> winners) {
         int maxPosition = 0;
 
         for (Car car : cars) {
