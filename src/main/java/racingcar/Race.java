@@ -26,8 +26,16 @@ public class Race {
     }
 
     public void printWinners() {
-        int maxPosition = 0;
         List<String> winners = new ArrayList<>();
+
+        findWinners(winners);
+
+        System.out.print("최종 우승자 : ");
+        System.out.print(String.join(", ", winners));
+    }
+
+    public void findWinners(List<String> winners) {
+        int maxPosition = 0;
 
         for (Car car : cars) {
             int currentPosition = car.getPosition();
@@ -40,9 +48,6 @@ public class Race {
                 winners.add(car.getName());
             }
         }
-
-        System.out.print("최종 우승자 : ");
-        System.out.print(String.join(", ", winners));
     }
 
     public void startRace() {
