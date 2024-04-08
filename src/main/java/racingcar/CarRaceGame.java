@@ -29,13 +29,13 @@ public class CarRaceGame {
         return tryCount;
     }
 
-    private void result(List<Car> cars, int tryCount) {
+    private void printResult(List<Car> cars, int tryCount) {
         System.out.println("\n실행결과");
         Race race = new Race(cars, tryCount);
         race.startRace();
     }
 
-    public void start() {
+    public void startGame() {
         String[] carNameArray = getCarNames();
 
         List<Car> cars = new ArrayList<>();
@@ -43,7 +43,7 @@ public class CarRaceGame {
 
         int tryCount = getTryCount();
 
-        result(cars, tryCount);
+        printResult(cars, tryCount);
     }
 
     private void validateCarNames(String[] carNameArray) {
