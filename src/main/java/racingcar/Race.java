@@ -26,28 +26,29 @@ public class Race {
     }
 
     private void printWinners() {
-        List<String> winners = new ArrayList<>();
-
-        findWinners(winners);
+        List<String> winners = findWinners();
 
         System.out.print("최종 우승자 : ");
         System.out.print(String.join(", ", winners));
     }
 
-    private void findWinners(List<String> winners) {
+    private List<String> findWinners() {
+        List<String> winners = new ArrayList<>();
+
         int maxPosition = 0;
 
         for (Car car : cars) {
             int currentPosition = car.getPosition();
+            maxPosition = Math.max(maxPosition, currentPosition);
+        }
 
-            if (currentPosition > maxPosition) {
-                maxPosition = currentPosition;
-                winners.clear();
-                winners.add(car.getName());
-            } else if (currentPosition == maxPosition) {
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
                 winners.add(car.getName());
             }
         }
+
+        return winners;
     }
 
     public void startRace() {
