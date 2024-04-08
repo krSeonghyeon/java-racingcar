@@ -18,7 +18,7 @@ public class Race {
         }
     }
 
-    private void printResult() {
+    private void printProgress() {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
@@ -53,7 +53,7 @@ public class Race {
     public void startRace() {
         for (int i = 0; i < tryCount; ++i) {
             moveAllCars();
-            printResult();
+            printProgress();
         }
         printWinners();
     }
