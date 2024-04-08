@@ -15,10 +15,14 @@ public class CarRaceGame {
         return carNameArray;
     }
 
-    private void addCar(String[] carNameArray, List<Car> cars) {
+    private List<Car> createCar(String[] carNameArray) {
+        List<Car> cars = new ArrayList<>();
+
         for (String name : carNameArray) {
             cars.add(new Car(name));
         }
+
+        return cars;
     }
 
     private int getTryCount() {
@@ -38,8 +42,7 @@ public class CarRaceGame {
     public void startGame() {
         String[] carNameArray = getCarNames();
 
-        List<Car> cars = new ArrayList<>();
-        addCar(carNameArray, cars);
+        List<Car> cars = createCar(carNameArray);
 
         int tryCount = getTryCount();
 
