@@ -8,17 +8,17 @@ import java.util.List;
 public class CarRaceGame {
     private String[] getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carNames = Console.readLine();
-        String[] carNameArray = carNames.split(",");
-        validateCarNames(carNameArray);
+        String allCarNames = Console.readLine();
+        String[] carNames = allCarNames.split(",");
+        validateCarNames(carNames);
 
-        return carNameArray;
+        return carNames;
     }
 
-    private List<Car> createCar(String[] carNameArray) {
+    private List<Car> createCar(String[] carNames) {
         List<Car> cars = new ArrayList<>();
 
-        for (String name : carNameArray) {
+        for (String name : carNames) {
             cars.add(new Car(name));
         }
 
@@ -40,17 +40,17 @@ public class CarRaceGame {
     }
 
     public void startGame() {
-        String[] carNameArray = getCarNames();
+        String[] carNames = getCarNames();
 
-        List<Car> cars = createCar(carNameArray);
+        List<Car> cars = createCar(carNames);
 
         int tryCount = getTryCount();
 
         printResult(cars, tryCount);
     }
 
-    private void validateCarNames(String[] carNameArray) {
-        for (String carName : carNameArray) {
+    private void validateCarNames(String[] carNames) {
+        for (String carName : carNames) {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
             }
